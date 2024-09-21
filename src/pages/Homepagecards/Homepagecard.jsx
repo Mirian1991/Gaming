@@ -1,14 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
+import { LanguageContext } from "../../global/contexts/LanguageContext";
 import gamedata from "../../global/gamedata.json";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Homepagecard = () => {
-  const navigate = useNavigate();
-
-  const handlePlayNow = (gameId) => {
-    navigate(`/personal/${gameId}`);
-  };
-
+  const { language } = useContext(LanguageContext);
   return (
     <div className="main-homepage">
       <div className="container">
@@ -30,12 +26,12 @@ export const Homepagecard = () => {
                       Pricing <br />
                       <span>{game.price}$</span>
                     </p>
-                    <button
+                    <Link 
+                      to={`/${language}/personal/${game.id}`}
                       className="playnowstyle"
-                      onClick={() => handlePlayNow(game.id)}
                     >
                       Play Now
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

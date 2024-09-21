@@ -15,6 +15,11 @@ import {
 
 export const routes = [
   {
+    path: "/",
+    element: <Homepage />,
+    errorElement: <Notfoundpage />
+  },
+  {
     path: "/:lang",
     element: <Homepage />,
     errorElement: <Notfoundpage />,
